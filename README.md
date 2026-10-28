@@ -93,14 +93,13 @@ Workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml):
 
 - روی هر Push به شاخه پیش‌فرض و هر Pull Request: `gofmt`، `go vet`، `go test -race`، `go build`
   و Build تصویر Docker
-- روی Push به شاخه پیش‌فرض (اگر `VERSION` تگ خورده یا push عادی باشد): انتشار
-  `ghcr.io/mirzawho/cat-infobot:<commit-sha>` و `:latest` با `GITHUB_TOKEN`
+- روی Push به شاخه پیش‌فرض: انتشار `ghcr.io/mirzawho/cat-infobot:<commit-sha>` و `:latest`
+  با `GITHUB_TOKEN`
 
 تگ زدن برای انتشار: `make release VERSION=v1.0.0`
 
-برای Deploy خودکار: Variable `K8S_DEPLOY_ENABLED=true` و Secret `KUBE_CONFIG` (base64
-kubeconfig) را تنظیم کنید؛ Variable اختیاری `K8S_NAMESPACE` (پیش‌فرض `infobot`).
-بدون آن‌ها Build و انتشار Image همچنان انجام می‌شود و مرحله Deploy رد می‌شود.
+استقرار روی Kubernetes دستی است (بخش بالا)؛ Workflow مرحلهٔ Deploy ندارد. پس از هر Push،
+تگ commit را در `k8s.yaml` بگذارید و `kubectl apply` را اجرا کنید.
 
 ## Makefile
 

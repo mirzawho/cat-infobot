@@ -4,7 +4,7 @@
 FROM golang:1.27.3-alpine AS build
 
 WORKDIR /src
-COPY go.mod go.sum ./
+COPY go.mod ./
 COPY . .
 
 # Static binary: the runtime image needs no libc.

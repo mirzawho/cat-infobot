@@ -11,7 +11,7 @@
 !.env.example
 
 # Build output and local data
-bin
+bin/
 dist/
 data/
 
@@ -21,6 +21,3 @@ data/
 # Editor and OS files
 .DS_Store
 *.swp
-
-# Local build output
-bin/

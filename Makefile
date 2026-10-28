@@ -55,7 +55,7 @@ test: ## Run tests
 test-race: ## Run tests with the race detector
 	$(GOFLAGS_ENV) $(GO) test -race -count=1 ./...
 
-tidy: ## Tidy go.mod / go.sum
+tidy: ## Format and sanity-check the module
 	$(GO) mod tidy
 	$(GO) mod verify
 
