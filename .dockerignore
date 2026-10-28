@@ -1,0 +1,26 @@
+# Version control and tooling
+.git
+.github
+.claude
+.idea
+.vscode
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+# Build output and local data
+bin
+dist/
+data/
+
+# Documentation (not needed at runtime)
+*.md
+
+# Editor and OS files
+.DS_Store
+*.swp
+
+# Local build output
+bin/

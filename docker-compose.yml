@@ -1,0 +1,30 @@
+services:
+  infobot:
+    image: ghcr.io/mirzawho/cat-infobot:latest
+    build:
+      context: .
+    container_name: infobot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      DATA_DIR: /data
+    volumes:
+      - infobot-data:/data
+    # No published ports: the bot uses Long Polling and exposes nothing.
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    stop_grace_period: 20s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  infobot-data:

@@ -1,0 +1,15 @@
+# Bot secrets
+.env
+.env.*
+!.env.example
+
+# Local runtime data (lock file)
+/data/
+
+# Build output
+/bin/
+
+# Editor and OS files
+.DS_Store
+.idea/
+.vscode/
